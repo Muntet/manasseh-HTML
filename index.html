@@ -1,242 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certificate Verification</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate Verification</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      background-color: #ffffff;
-      font-family: Arial, sans-serif;
-      color: #000;
-    }
+<style>
 
-    .top-bar {
-      background-color: #eaeaea;
-      height: 0px;
-    }
+body{
+margin:0;
+background:#000;
+font-family:Arial, sans-serif;
+color:#fff;
+}
 
-    .auth-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 20px;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 14px;
-      color: #000;
-    }
+.auth-box{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:6px;
+margin-top:20px;
+text-transform:uppercase;
+font-weight:bold;
+font-size:14px;
+color:#fff;
+}
 
-    .small-tick {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      border: 2px solid #00bfff;
-      background-color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.small-tick{
+width:15px;
+height:15px;
+border-radius:50%;
+border:2px solid #00bfff;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
-    .small-tick span {
-      color: #0074cc;
-      font-size: 12px;
-      font-weight: bold;
-    }
+.small-tick span{
+color:#0074cc;
+font-size:12px;
+font-weight:bold;
+}
 
-    .container {
-      width: 95%;
-      max-width: 320px;
-      margin: 20px auto;
-      background-color: #f4f4f4;
-      padding: 25px 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
+.container{
+width:95%;
+max-width:320px;
+margin:20px auto;
+background:#3b3b3b;
+padding:25px 20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.7);
+text-align:center;
+}
 
-    .heading {
-      color: #0074cc;
-      font-size: 21px;
-      font-weight: bold;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
+.heading{
+color:#00bfff;
+font-size:21px;
+font-weight:bold;
+margin-bottom:12px;
+text-transform:uppercase;
+}
 
-    .tick-box {
-      width: 60px;
-      height: 60px;
-      background-color: #ffffff;
-      border-radius: 50%;
-      border: 3px solid #00bfff;
-      margin: 0 auto 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.tick-box{
+width:60px;
+height:60px;
+background:#fff;
+border-radius:50%;
+border:3px solid #00bfff;
+margin:0 auto 15px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
-    .tick-box .checkmark {
-      width: 37px;
-      height: 37px;
-      transform: scale(1.6);
-    }
+.tick-box .checkmark{
+width:37px;
+height:37px;
+transform:scale(1.6);
+}
 
-    .tick-box .checkmark path {
-      fill: #2ecc71;
-    }
+.tick-box .checkmark path{
+fill:#2ecc71;
+}
 
-    .valid-msg {
-      font-size: 16px;
-      margin-bottom: 25px;
-      color: #000;
-    }
+.valid-msg{
+font-size:16px;
+margin-bottom:25px;
+color:#fff;
+}
 
-    .details {
-      font-size: 14px;
-      line-height: 1.8;
-      margin: 20px auto;
-    }
+.details{
+font-size:14px;
+line-height:1.8;
+margin:20px auto;
+}
 
-    .details p {
-      margin: 6px 0;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
+.details p{
+margin:6px 0;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+}
 
-    .label {
-      width: 130px;
-      font-weight: bold;
-      color: #000;
-      flex-shrink: 0;
-    }
+.label{
+width:130px;
+font-weight:bold;
+color:#fff;
+flex-shrink:0;
+}
 
-    .value {
-      flex: 1;
-      color: #444;
-      text-align: left;
-      line-height: 1.6;
-    }
+.value{
+flex:1;
+color:#ccc;
+text-align:left;
+line-height:1.6;
+}
 
-    .download-btn {
-      background-color: #0074cc;
-      color: #fff;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-    }
+.download-btn{
+background:#004d80;
+color:#fff;
+padding:10px 15px;
+border:none;
+border-radius:4px;
+font-size:14px;
+font-weight:bold;
+cursor:pointer;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+}
 
-    .download-btn:hover {
-      background-color: #005fa3;
-    }
+.download-btn:hover{
+background:#0066aa;
+}
 
-    .footer-section {
-      text-align: center;
-      margin-top: 40px;
-    }
+.footer-section{
+text-align:center;
+margin-top:40px;
+}
 
-    .footer-powered {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 8px;
-    }
+.footer-powered{
+font-size:12px;
+color:#bbb;
+margin-bottom:8px;
+}
 
-    .footer-brand {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-    }
+.footer-brand{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+}
 
-    .footer-brand img {
-      height: 24px;
-    }
+.footer-brand img{
+height:24px;
+}
 
-    .footer-text {
-      text-align: left;
-      line-height: 1.1;
-    }
+.brand-vasto{
+font-size:16px;
+color:#bbb;
+}
 
-    .brand-vasto {
-      font-size: 16px;
-      font-weight: 400;
-      color: #666;
-    }
+.brand-software{
+font-size:10px;
+color:#00bfff;
+}
 
-    .brand-software {
-      font-size: 10px;
-      color: #0074cc;
-      margin-left: 2px;
-    }
+footer{
+font-size:11px;
+color:#888;
+margin-top:20px;
+margin-bottom:20px;
+text-align:center;
+}
 
-    footer {
-      font-size: 11px;
-      color: #777;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <div class="top-bar"></div>
+<div class="auth-box">
+<div class="small-tick"><span>&#10003;</span></div>
+Document Authenticity Verification
+</div>
 
-  <div class="auth-box">
-    <div class="small-tick"><span>&#10003;</span></div>
-    Document Authenticity Verification
-  </div>
+<div class="container">
 
-  <div class="container">
-    <div class="heading">Verification Results</div>
+<div class="heading">Verification Results</div>
 
-    <div class="tick-box">
-      <svg class="checkmark" viewBox="0 0 64 64">
-        <path d="M16 34l10 10 22-22 6 6-28 28-16-16z"/>
-      </svg>
-    </div>
+<div class="tick-box">
+<svg class="checkmark" viewBox="0 0 64 64">
+<path d="M16 34l10 10 22-22 6 6-28 28-16-16z"/>
+</svg>
+</div>
 
-    <div class="valid-msg">This is a valid certificate.</div>
+<div class="valid-msg">This is a valid certificate.</div>
 
-    <div class="details">
-      <p><span class="label">Number:</span><span class="value">164010</span></p>
-      <p><span class="label">Issued to:</span><span class="value">Manasseh Kipruto</span></p>
-      <p><span class="label">Issued by:</span><span class="value">FIRSTAIDPRO AUSTRALIA PTY LTD</span></p>
-      <p><span class="label">Issue date:</span><span class="value">13 April 2025</span></p>
-      <p><span class="label">Expires:</span><span class="value">10 April 2028</span></p>
-      <p><span class="label">For:</span><span class="value">HLTAID011 – Provide First Aid & CPR (2Hrs) Face-to-Face Assessment + Online e-Learning</span></p>
-    </div>
+<div class="details">
+<p><span class="label">Number:</span><span class="value">164010</span></p>
+<p><span class="label">Issued to:</span><span class="value">Manasseh Kipruto</span></p>
+<p><span class="label">Issued by:</span><span class="value">FIRSTAIDPRO AUSTRALIA PTY LTD</span></p>
+<p><span class="label">Issue date:</span><span class="value">12 February 2026</span></p>
+<p><span class="label">Expires:</span><span class="value">11 February 2029</span></p>
+<p><span class="label">For:</span><span class="value">HLTAID011 – Provide First Aid & CPR (2Hrs) Face-to-Face Assessment + Online e-Learning</span></p>
+</div>
 
-    <a class="download-btn" href="https://drive.google.com/file/d/1AGKx6lBxj96OQdpOaaiUtEvWsw43MgDR/view?usp=sharing" target="_blank">
-      Download Full Certificate
-    </a>
-  </div>
+<a class="download-btn" href="https://drive.google.com/file/d/1AGKx6lBxj96OQdpOaaiUtEvWsw43MgDR/view?usp=sharing" target="_blank">
+Download Full Certificate
+</a>
 
-  <div class="footer-section">
-    <div class="footer-powered">Powered by:</div>
-    <div class="footer-brand">
-      <img src="https://i.ibb.co/FbX9h692/vasto-logo.png" alt="Vasto Logo">
-      <div class="footer-text">
-        <div class="brand-vasto">VASTO</div>
-        <div class="brand-software">Software</div>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <footer>
-    © Copyright 2025 Vasto Software Pty Ltd. All rights reserved.
-  </footer>
+<div class="footer-section">
+<div class="footer-powered">Powered by:</div>
+
+<div class="footer-brand">
+<img src="https://i.ibb.co/FbX9h692/vasto-logo.png">
+<div>
+<div class="brand-vasto">VASTO</div>
+<div class="brand-software">Software</div>
+</div>
+</div>
+</div>
+
+<footer>
+© Copyright 2025 Vasto Software Pty Ltd. All rights reserved.
+</footer>
 
 </body>
 </html>
